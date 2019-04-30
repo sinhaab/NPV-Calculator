@@ -1,0 +1,33 @@
+
+<div class="col-md-6">
+    <h2 class="text-center">NPV Calculator</h2>
+    <form [formGroup]="addForm" novalidate class="form">
+
+        <div class="form-group">
+            <label for="discountRate">Discount Rate:</label>
+            <input formControlName="discountRate" placeholder="Discount Rate" name="discountRate" class="form-control" id="discountRate">
+            <div class="alert  alert-danger" *ngIf="addForm.get('discountRate').hasError('required') && addForm.get('discountRate').touched">
+                Discount Rate is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lowerbound">Lower Bound Rate:</label>
+            <input formControlName="lowerBoundRate" placeholder="Lower bound Rate" name="lowerBoundRate" class="form-control" id="lowerBoundRate">
+            <div class="alert  alert-danger" *ngIf="addForm.get('lowerBoundRate').hasError('required') && addForm.get('lowerBoundRate').touched">
+                Lower Bound Rate is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="upperbound">Upper Bound Rate:</label>
+            <input formControlName="upperBoundRate" placeholder="Upper bound Rate" name="upperBoundRate" class="form-control" id="upperBoundRate">
+            <div class="alert  alert-danger" *ngIf="addForm.get('upperBoundRate').hasError('required') && addForm.get('upperBoundRate').touched">
+                Upper Bound Rate is required
+            </div>
+        </div>
+
+
+
+    <button class="btn btn-success"  [disabled]='addForm.invalid' *ngIf="btnvisibility" (click)="onSubmit()">Calculate</button>
+    <h2 class="text-center" *ngIf="visibility">NPV Rate {{npvrate}}</h2>
+    </form>
+</div>  
